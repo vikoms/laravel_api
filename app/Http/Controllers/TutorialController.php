@@ -13,7 +13,7 @@ class TutorialController extends Controller
 
     public function index()
     {
-        return Tutorial::with('comments')->get();
+        // return Tutorial::with('comments')->get();
         return Tutorial::all();
     }
 
@@ -68,8 +68,9 @@ class TutorialController extends Controller
         $tut->title = $request->title;
         $tut->body = $request->body;
         $tut->save();
-
-        return $tut;
+        return response()->json([
+            'success' => 'Berhasil update data'
+        ], 200);
     }
 
     public function destroy(Request $request, $id)

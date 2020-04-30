@@ -10,6 +10,7 @@ class UserController extends Controller
     public function show(Request $request)
     {
         $id = $request->user()->id;
-        return User::with('comments')->where('id', $id)->first();
+        return User::with('tutorials')->where('id', $id)->first();
+        
     }
 }

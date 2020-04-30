@@ -17,11 +17,13 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        return User::create([
+       return User::create([
             'username' => $request->json('username'),
             'email' => $request->json('email'),
             'password' => bcrypt($request->json('password'))
         ]);
+
+    
     }
 
 
